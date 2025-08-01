@@ -9,15 +9,14 @@ int main()
 {
   const std::vector<std::string> field = Pathfind::read_field_file("field2");
 
-  Pathfind::log_field(field);
-
   Pathfind::Grid grid(field);
 
-  Pathfind::log_grid(grid);
+  Pathfind::BasicPathfinder basic_pathfinder;
+  Pathfind::AStar astar_pathfinder;
 
-  std::vector<Pathfind::Pos> basic_path = Pathfind::benchmark_get_path(Pathfind::BasicPathfinder(), grid);
+  std::vector<Pathfind::Pathfinder*> pathfinders = { &basic_pathfinder, &astar_pathfinder }; 
 
-  Pathfind::log_path(basic_path);
+  Pathfind::Benchmark::BenchmarkGetPaths(pathfinders, grid);
 
   return 0;
   

@@ -1,5 +1,5 @@
 all: \
-	build/hash build/filework build/print build/BasicPathfinder build/Grid build/Pos build/benchmark build/HeuristicComparator \
+	build/hash build/filework build/print build/BasicPathfinder build/Grid build/Pos build/Benchmark build/HeuristicComparator \
 	build/AStar build/HeuristicGrid \
 	types/StepNode.h wrappers/UnorderedMap.h solution/Pathfinder.h types/HeuristicPos.h types/HeuristicNode.h
 
@@ -32,8 +32,8 @@ build/HeuristicGrid: types/HeuristicGrid.cpp types/HeuristicGrid.h
 build/Pos: types/Pos.cpp
 	g++ -c types/Pos.cpp -o build/Pos
 
-build/benchmark: testing/benchmark.cpp testing/benchmark.h
-	g++ -c testing/benchmark.cpp -o build/benchmark
+build/Benchmark: testing/Benchmark.cpp testing/Benchmark.h
+	g++ -c testing/Benchmark.cpp -o build/Benchmark
 
 clean:
 	rm -f build/* program.exe
