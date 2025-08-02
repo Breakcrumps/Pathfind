@@ -20,7 +20,7 @@ double Pathfind::Benchmark::LogPathfinder(
     pathfinder->GetPath(grid);
   }
 
-  std::chrono::duration<double, std::milli> elapsed = std::chrono::steady_clock::now() - start;
+  std::chrono::duration<double, std::micro> elapsed = std::chrono::steady_clock::now() - start;
   double time = elapsed.count();
 
   double rel = (baselineTime > 0.) ? time / baselineTime * 100 : 100;
@@ -72,7 +72,7 @@ void Pathfind::Benchmark::BenchmarkGetPaths(
 
   std::cout << "\n\nNumber of cycles: " << cycles << "\n\n";
 
-  std::cout << std::left << std::setw(30) << "Pathfinder" << std::setw(20) << "Mean, ms" << std::setw(20) << "Total, ms" << "Rel\n";
+  std::cout << std::left << std::setw(30) << "Pathfinder" << std::setw(20) << "Mean, us" << std::setw(20) << "Total, us" << "Rel\n";
   
   double baseline_time = LogPathfinder(pathfinders[baseline_index], grid, cycles);
 

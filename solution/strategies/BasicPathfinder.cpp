@@ -25,7 +25,7 @@ std::vector<Pathfind::Pos> Pathfind::BasicPathfinder::ReconstructPath(const Grid
   return path;
 }
 
-int Pathfind::BasicPathfinder::ComputeSteps(const Grid &grid) const
+int Pathfind::BasicPathfinder::ComputeSteps(const Grid& grid) const
 {
   std::queue<StepNode> frontier;
   frontier.push({ grid.Start, 0 });
@@ -55,7 +55,7 @@ int Pathfind::BasicPathfinder::ComputeSteps(const Grid &grid) const
   return -1;
 }
 
-std::vector<Pathfind::Pos> Pathfind::BasicPathfinder::GetPath(const Grid &grid) const
+std::vector<Pathfind::Pos> Pathfind::BasicPathfinder::GetPath(const Grid& grid) const
 {
   std::queue<Pos> frontier;
   frontier.push(grid.Start);
@@ -83,6 +83,6 @@ std::vector<Pathfind::Pos> Pathfind::BasicPathfinder::GetPath(const Grid &grid) 
 
   }
 
-  return ReconstructPath(grid, came_from);
+  return {};
   
 }
