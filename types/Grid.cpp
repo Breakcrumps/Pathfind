@@ -45,9 +45,9 @@ bool Pathfind::Grid::Passable(Pos pos) const
   return !Walls.Contains(pos);
 }
 
-std::vector<Pathfind::Pos> Pathfind::Grid::Neighbours(Pos pos) const
+std::array<Pathfind::Pos, 4> Pathfind::Grid::Neighbours(Pos pos) const
 {
-  std::vector<Pathfind::Pos> neighbours(4, pos);
+  std::array<Pathfind::Pos, 4> neighbours { pos, pos, pos, pos };
 
   for (int i = 0; i < 4; i++)
   {

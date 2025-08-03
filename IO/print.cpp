@@ -3,6 +3,7 @@
 #include "../types/Grid.h"
 
 #include <iostream>
+#include <fstream>
 
 void Pathfind::log_field(const std::vector<std::string> &field)
 {
@@ -40,4 +41,27 @@ void Pathfind::log_path(const std::vector<Pos>& path)
   std::cout << " --> " << path[0].Format() << " (finish)\n\n"
     << path.size() - 1 << " steps in total.\n\n";
 
+}
+
+void Pathfind::draw_path(
+  const std::vector<Pos>& path,
+  const std::vector<std::string> field,
+  const std::string& filename
+)
+{
+  std::vector<std::string> path_field(field);
+
+  for (int i = 1; i < path.size() - 1; i++)
+  {
+    path_field[path[i].Y][path[i].X] = i % 10 + 48;
+  }
+
+  std::ofstream file("output/" + filename + ".txt");
+
+  for (std::string line : path_field)
+  {
+    file << line << '\n';
+  }
+
+  file.close();
 }

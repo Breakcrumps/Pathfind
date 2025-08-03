@@ -54,20 +54,20 @@ std::vector<Pathfind::Pos> Pathfind::AStar::GetPath(const Grid& grid) const
 
     frontier.pop();
 
-    for (Pos next : grid.Neighbours(current.Pos))
+    for (Pos next_pos : grid.Neighbours(current.Pos))
     {
-      int next_cost = cost_so_far.At(current.Pos) + 1;
+      int next_cost = cost_so_far[current.Pos] + 1;
 
       if (
-        cost_so_far.Contains(next)
-        && cost_so_far.At(next) <= next_cost
+        cost_so_far.Contains(next_pos)
+        && cost_so_far[next_pos] <= next_cost
       )
         continue;
 
-      came_from[next] = current.Pos;
-      cost_so_far[next] = next_cost;
+      came_from[next_pos] = current.Pos;
+      cost_so_far[next_pos] = next_cost;
 
-      frontier.push({ next, heuristicGrid.Heuristic(next) });
+      frontier.push({ next_pos, heuristicGrid.Heuristic(next_pos) });
 
     }
 

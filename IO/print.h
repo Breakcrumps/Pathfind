@@ -11,4 +11,10 @@ namespace Pathfind
 
   void log_path(const std::vector<struct Pos>& path);
 
+  void draw_path(
+    const std::vector<Pos>& path,
+    const std::vector<std::string> field,
+    const std::string& filename = "path"
+  );
+
 }

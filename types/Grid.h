@@ -23,7 +23,7 @@ namespace Pathfind
     
     Grid(const std::vector<std::string>& field);
 
-    std::vector<Pos> Neighbours(Pos pos) const;
+    std::array<Pos, 4> Neighbours(Pos pos) const;
 
     bool InBounds(Pos pos) const, Passable(Pos pos) const;
 

@@ -13,9 +13,20 @@ int main()
   Pathfind::Grid grid(field);
 
   Pathfind::BasicPathfinder basic_pathfinder;
+  Pathfind::AStar a_star;
 
-  ankerl::nanobench::Bench().minEpochIterations(1618).run("GetPath", [&]
-  {
-    basic_pathfinder.GetPath(grid);
-  });
+  // ankerl::nanobench::Bench().minEpochIterations(60).run("Basic", [&grid, &basic_pathfinder]
+  // {
+  //   basic_pathfinder.GetPath(grid);
+  // });
+
+  // ankerl::nanobench::Bench().minEpochIterations(60).run("AStar", [&grid, &a_star]
+  // {
+  //   a_star.GetPath(grid);
+  // });
+
+  std::vector<Pathfind::Pos> path = a_star.GetPath(grid);
+
+  Pathfind::draw_path(path, field);
+
 }
